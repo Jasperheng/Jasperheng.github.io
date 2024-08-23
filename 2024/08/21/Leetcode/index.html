@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/08/21/Leetcode/Leetcode-progress.png">
 <meta property="article:published_time" content="2024-08-21T15:37:43.000Z">
-<meta property="article:modified_time" content="2024-08-22T13:16:40.382Z">
+<meta property="article:modified_time" content="2024-08-23T14:22:27.119Z">
 <meta property="article:author" content="李思恒">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="做题笔记">
@@ -186,7 +186,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-22 21:16:40" itemprop="dateModified" datetime="2024-08-22T21:16:40+08:00">2024-08-22</time>
+                <time title="修改时间：2024-08-23 22:22:27" itemprop="dateModified" datetime="2024-08-23T22:22:27+08:00">2024-08-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
 
 <span id="more"></span>
 
-<h1 id="日期：2024-08-22"><a href="#日期：2024-08-22" class="headerlink" title="日期：2024-08-22"></a>日期：2024-08-22</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-size-subarray-sum/"><strong>209.</strong> <strong>长度最小的子数组</strong></a></p>
+<h1 id="2024-08-22"><a href="#2024-08-22" class="headerlink" title="2024-08-22"></a>2024-08-22</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-size-subarray-sum/"><strong>209.</strong> <strong>长度最小的子数组</strong></a></p>
 <p>也是两个指针，只是都是从数组头开始，滑动j加入元素使得满足条件，然后滑动i删除元素使得条件不满足，这过程中不断记录最小长度。</p>
 <p>我写的时候经常是一个while里然后两个while(i)和while(j)，解答里是最外层while用来j，内层一个while(i)，我写的那种要注意一些下标边界如if(i&#x3D;&#x3D;j){j++;}，因为这里若i&#x3D;&#x3D;j了会导致之后的条件判断出现问题</p>
 <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/"><strong>3.</strong> <strong>无重复字符的最长子串</strong></a></p>
@@ -226,6 +226,74 @@
 <p><strong><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/linked-list-cycle/">141. 环形链表</a></strong></p>
 <p>这题虽然是简单题，但是一开始用暴力解法犯的错是for(ListNode *k&#x3D;head; <mark>k!&#x3D;p</mark>;k&#x3D;k-&gt;next){<mark>if(k&#x3D;&#x3D;p){return true;}</mark>…}所以要额外int step&#x3D;0，每移动1步就+1，结束条件改为i&lt;step;</p>
 <p>其他解法：（1）unordered_set<mark><strong>（<strong><strong>2</strong></strong>）龟兔赛跑法，双指针，一个指针一次走一步，一个指针一次走两步，这样进入环形后，走得慢的那个指针总会被追上</strong></mark></p>
+<h1 id="2024-08-23"><a href="#2024-08-23" class="headerlink" title="2024-08-23"></a>2024-08-23</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/binary-tree-level-order-traversal/">102. 二叉树的层序遍历</a></p>
+<p><strong>一开始不会做，忘了二叉树和BFS相关知识，再加上这题需要同时将同一层的value放在一起</strong></p>
+<p>不是普通的BFS，附加了输出条件。方法1：每次记录层数（上层+1），然后用层数作为hash map的key，最后按key输出；方法2：每次不是pop一个结点出来，而是pop当前的所有结点出来（pop出来的就是同一层的所有结点）</p>
+<p><strong>相关知识：</strong></p>
+<p>BFS与DFS</p>
+<ul>
+<li><p>BFS（广度优先搜索），也叫层序遍历</p>
+<p>使用队列（<code>queue</code>）来实现，它按层次从上到下、从左到右遍历树的每一层。</p>
+<p><strong>实现思路（二叉树’s Version）：</strong></p>
+<ol>
+<li><p>从根节点开始，将其加入队列。</p>
+</li>
+<li><p>从队列中取出节点，访问该节点，并将其左右子节点按顺序加入队列。</p>
+</li>
+<li><p>重复以上步骤，直到队列为空。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct TreeNode &#123;</span><br><span class="line">    int val;</span><br><span class="line">    TreeNode* left;</span><br><span class="line">    TreeNode* right;</span><br><span class="line">    TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void BFS(TreeNode* root) &#123;</span><br><span class="line">    if (root == nullptr) return;</span><br><span class="line"></span><br><span class="line">    queue&lt;TreeNode*&gt; q;</span><br><span class="line">    q.push(root);</span><br><span class="line"></span><br><span class="line">    while (!q.empty()) &#123;</span><br><span class="line">        TreeNode* node = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line"></span><br><span class="line">        cout &lt;&lt; node-&gt;val &lt;&lt; &quot; &quot;;</span><br><span class="line"></span><br><span class="line">        // 图的话下改成for循环遍所有邻接结点</span><br><span class="line">        if (node-&gt;left) q.push(node-&gt;left);</span><br><span class="line">        if (node-&gt;right) q.push(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>DFS（深度优先搜索）</p>
+<p>深度优先遍历有三种主要方法：前序遍历、中序遍历和后序遍历。它们都可以通过递归或使用栈（<code>stack</code>）来实现。X序代表根节点在什么时候被访问。</p>
+<p>以先序遍历（二叉树’s Version）为例：</p>
+<p><strong>实现思路：</strong></p>
+<ol>
+<li><p>DFS方法首先从根节点开始，将根节点入栈</p>
+</li>
+<li><p>从stack中访问栈顶的结点</p>
+</li>
+<li><p>找出与此点邻接的且尚未遍历的点，进行标记，然后放入stack中，依次进行；</p>
+</li>
+<li><p>如果此点没有尚未遍历的邻接点，则将此点从stack中弹出，再按照3依次进行；</p>
+</li>
+<li><p>直到遍历完整个树&#x2F;图，stack里的元素都将弹出，最后栈为空，DFS遍历完成（‌<mark>树和图的主要区别在于树是无环的连通图，而图可以有环</mark>）</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void Preorder(TreeNode* root) &#123;</span><br><span class="line">    if (root == nullptr) return;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; root-&gt;val &lt;&lt; &quot; &quot;;</span><br><span class="line">    Preorder(root-&gt;left);</span><br><span class="line">    Preorder(root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>图’s Version</p>
+<p>每个结点可能连接多个结点，所以可能访问到访问过的结点，因此标记是否被访问。</p>
+<p>递归实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void DFS_Search(ListNode* pRoot)</span><br><span class="line">&#123;</span><br><span class="line">   if(!pRoot) return;</span><br><span class="line">   visit(pRoot);</span><br><span class="line">   pRoot-&gt;visited = true;</span><br><span class="line">   foreach(ListNode* pChild in pRoot-&gt;adjacent)</span><br><span class="line">        if(!pChild-&gt;visited)</span><br><span class="line">            DFS_Seach(pChild);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>非递归实现（Stack）</p>
+<p><mark>&#x2F;&#x2F;如果二叉树版本可以改成每次pop一个，然后先进右子树，后进左子树</mark></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">void DFS(Graph *G)</span><br><span class="line">&#123;</span><br><span class="line">    stack&lt;int&gt; s;</span><br><span class="line">    s.push(0); //0是开始元素</span><br><span class="line">    G-&gt;visit[0] = true;</span><br><span class="line">    while (!s.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        int tmp = s.top();</span><br><span class="line">        EdgeNode *p = G-&gt;vertexList[tmp].firstedge;</span><br><span class="line">        while (p)</span><br><span class="line">        &#123;</span><br><span class="line">            if (G-&gt;visit[p-&gt;adjvex])</span><br><span class="line">            &#123;</span><br><span class="line">                p = p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                cout &lt;&lt; &quot;--&gt;&quot; &lt;&lt; p-&gt;adjvex;</span><br><span class="line">                s.push(p-&gt;adjvex);</span><br><span class="line">                G-&gt;visit[p-&gt;adjvex] = true;</span><br><span class="line">                // 找到下一深度的点就不再周边广搜</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">            // 周围没有待访问的点，出栈</span><br><span class="line">            if (p == NULL)</span><br><span class="line">            &#123;</span><br><span class="line">                s.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/surrounded-regions/">130. 被围绕的区域</a></p>
+<p>这题要注意一些代码小细节，如最后一行是&gt;&#x3D;(m<mark>-1</mark>)+n；按我的写法if(p-n&gt;&#x3D;0 &amp;&amp; board[(p-n)&#x2F;n][(p-n)%n]&#x3D;&#x3D;’O’ &amp;&amp;!visited[(p-n)&#x2F;n][(p-n)%n]){…}这里要重新计算横纵坐标，而不是用i-1和j，因为i,j对应的是起始元素的坐标，而现在已经在遍历连通图了。</p>
+<p>更省时一点的做法是：<mark>从边缘开始寻找边缘对应的连通图，进行标注，然后就可以结束了</mark>；我这种做法把非连通图也找出来给遍历了（不过其实是不是无伤大雅）（这种方法一开始想到了，但是没想到里面的非边缘连通图可以不用找了）</p>
+<p><strong>相关知识</strong>：</p>
+<p>vector版本二维数组的创建：vector&lt;vector<bool>&gt; m(rows, vector<bool>(cols, false));</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a></p>
+<p>一开始差点想用一个next指针来连接所有邻接节点，但是因为题中说了输入仅有小写英文字母，所以为了读取方便，<mark>直接用数组存储每个字符即可（<strong>共26个英文字母</strong>）</mark>；这题还要注意要<mark>设置一个bool型的isEnd</mark>，不然不知道某个词是存在还是仅仅只是一个前缀；</p>
+<p><strong>相关知识</strong>：</p>
+<p>class中各个member的初始化写法（<mark>注意不能再private中定义时就初始化</mark>）：</p>
+<pre><code>class Trie &#123;
+
+private:
+
+    vector&lt;Trie*&gt; children; //26个英文字母
+
+    bool isEnd; //当前结点是否为某个单词的结束结点
+
+public:
+
+    Trie(): children(26, NULL), isEnd(false) &#123;&#125;
+
+&#125;;
+</code></pre>
 
     </div>
 
@@ -309,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%EF%BC%9A2024-08-22"><span class="nav-number">1.</span> <span class="nav-text">日期：2024-08-22</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-22"><span class="nav-number">1.</span> <span class="nav-text">2024-08-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-23"><span class="nav-number">2.</span> <span class="nav-text">2024-08-23</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
