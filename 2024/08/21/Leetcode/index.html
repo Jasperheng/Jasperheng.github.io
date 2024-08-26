@@ -28,8 +28,11 @@
 <meta property="og:description" content="本文是刷Leetcode过程中的笔记，# 题库范围：面试150题+Hot 100.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2024/08/21/Leetcode/Leetcode-progress.png">
+<meta property="og:image" content="http://example.com/2024/08/21/Leetcode/222-1.png">
+<meta property="og:image" content="http://example.com/2024/08/21/Leetcode/222-2.png">
+<meta property="og:image" content="http://example.com/2024/08/21/Leetcode/222-3.png">
 <meta property="article:published_time" content="2024-08-21T15:37:43.000Z">
-<meta property="article:modified_time" content="2024-08-23T14:22:27.119Z">
+<meta property="article:modified_time" content="2024-08-26T04:26:26.753Z">
 <meta property="article:author" content="李思恒">
 <meta property="article:tag" content="Leetcode">
 <meta property="article:tag" content="做题笔记">
@@ -186,7 +189,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-23 22:22:27" itemprop="dateModified" datetime="2024-08-23T22:22:27+08:00">2024-08-23</time>
+                <time title="修改时间：2024-08-26 12:26:26" itemprop="dateModified" datetime="2024-08-26T12:26:26+08:00">2024-08-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -294,6 +297,41 @@ public:
 
 &#125;;
 </code></pre>
+<h1 id="2024-08-25"><a href="#2024-08-25" class="headerlink" title="2024-08-25"></a>2024-08-25</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-absolute-difference-in-bst/">530. 二叉搜索树的最小绝对差</a></p>
+<p><strong>一开始不会做</strong>（不记得二叉搜索树的定义及性质）</p>
+<p><strong>定义</strong>：二叉查找树(Binary Search Tree)，(又:二叉搜索树，二叉排序树)它或者是一棵空树，或者是具有下列性质的二叉树: 若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值; 若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值; 它的左、右子树也分别为二叉排序树。</p>
+<p><strong>性质</strong>：中序遍历后结果为递增序列</p>
+<p>因此，这题可以用一个序列存储中序遍历的结果，然后再计算相邻位置的最小差值，或者在遍历的过程中用一个pre变量存储先导元素，然后不断更新结果。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-complete-tree-nodes/">222. 完全二叉树的节点个数</a></p>
+<p>这题遍历计算总数就行了，但是<strong>进阶版</strong>：遍历树来统计节点是一种时间复杂度为 <code>O(n)</code> 的简单解决方案。<strong>你可以设计一个更快的算法吗</strong>？</p>
+<p>再看一遍题解！主要是在最后一层进行二分查找+位运算，需要利用完全二叉树的性质，在整数和二进制数之间转换</p>
+<img src="/2024/08/21/Leetcode/222-1.png" class="" title="图片引用方法一">
+
+<img src="/2024/08/21/Leetcode/222-2.png" class="" title="图片引用方法一">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int countNodes(TreeNode root) &#123;</span><br><span class="line">        if (root == null) &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">        int level = 0;</span><br><span class="line">        TreeNode node = root;</span><br><span class="line">        while (node.left != null) &#123;</span><br><span class="line">            level++;</span><br><span class="line">            node = node.left;</span><br><span class="line">        &#125;</span><br><span class="line">        int low = 1 &lt;&lt; level, high = (1 &lt;&lt; (level + 1)) - 1;</span><br><span class="line">        //二进制中1左移level个位置，相当于乘上2的level次方</span><br><span class="line">        while (low &lt; high) &#123;</span><br><span class="line">            int mid = (high - low + 1) / 2 + low;</span><br><span class="line">            if (exists(root, level, mid)) &#123;</span><br><span class="line">                low = mid;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                high = mid - 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return low;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean exists(TreeNode root, int level, int k) &#123;</span><br><span class="line">        int bits = 1 &lt;&lt; (level - 1); //100...00</span><br><span class="line">        TreeNode node = root;</span><br><span class="line">        while (node != null &amp;&amp; bits &gt; 0) &#123;</span><br><span class="line">            if ((bits &amp; k) == 0) &#123;//对应位是否为1，bits此时其他位置都为0</span><br><span class="line">                node = node.left;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                node = node.right;</span><br><span class="line">            &#125;</span><br><span class="line">            bits &gt;&gt;= 1; //左移1位，相当于除以2</span><br><span class="line">        &#125;</span><br><span class="line">        return node != null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<img src="/2024/08/21/Leetcode/222-3.png" class="" title="时间与空间复杂度">
+
+<p><strong>相关知识</strong>：</p>
+<ol>
+<li><p>在完全二叉树内，从根结点到某一叶子结点，若走左子树则对应位为0，右子树则为1，这样最终构成的二进制序列转换为十进制后，是从根节点层序遍历到当前叶子结点的总结点个数。</p>
+</li>
+<li><p>在完全二叉树内，假设一共h层（0,1,…,h），最后一层的结点个数在[$1,2^h$]之间，对应的整棵树的总结点数量在[$2^h,2^{h+1}-1$]之间。</p>
+</li>
+<li><p>等比数列求和公式:</p>
+<p>$(q\neq1)S_n&#x3D;a_1(1-q^n)&#x2F;(1-q)&#x3D;(a_1-a_nq)&#x2F;(1-q)$</p>
+<p>$(q&#x3D;1)S_n&#x3D;na_1$</p>
+</li>
+<li><p>a&amp;b: 按位与操作，如果对应位置都是1，则结果为1，否则为0。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-binary-search-tree/">98. 验证二叉搜索树</a></p>
+<p><strong>一开始不会做</strong>：又忘了二叉搜索树的性质！</p>
+<p>（1）给每个结点设置(low,high)判断是否在此范围内，然后根据走左子树还是右子树来更新上或下界，一开始因为题目设置在[-2^31, 2^31-1]内（int范围），所以long int low, high。</p>
+<p>（2）利用二叉搜索树性质：<strong>中序遍历后是递增序列</strong>！</p>
+<h1 id="2024-08-26"><a href="#2024-08-26" class="headerlink" title="2024-08-26"></a>2024-08-26</h1><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-consecutive-sequence/">128. 最长连续序列</a></p>
+<p><strong>一开始记错快排时间复杂度</strong>（平均O(nlogn)，最坏即有序情况O(n^2)），直接用快排然后再判断，但应该是：<strong>每个数都判断一次这个数是不是连续序列的开头那个数</strong>。用哈希表查找这个数前面一个数是否存在。存在则直接跳过；不存在则往后一直查找到没有，然后记录并更新最大长度，这样的时间复杂度就可以达到题目要求的O(n)。还有方法是把每个数向前和向后找（找到的元素删掉）。</p>
 
     </div>
 
@@ -377,7 +415,7 @@ public:
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-22"><span class="nav-number">1.</span> <span class="nav-text">2024-08-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-23"><span class="nav-number">2.</span> <span class="nav-text">2024-08-23</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-22"><span class="nav-number">1.</span> <span class="nav-text">2024-08-22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-23"><span class="nav-number">2.</span> <span class="nav-text">2024-08-23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-25"><span class="nav-number">3.</span> <span class="nav-text">2024-08-25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2024-08-26"><span class="nav-number">4.</span> <span class="nav-text">2024-08-26</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
