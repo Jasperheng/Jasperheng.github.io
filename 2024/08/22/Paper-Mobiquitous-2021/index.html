@@ -20,19 +20,29 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算">
+  <meta name="description" content="Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar 主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于UWB雷达信号的整夜呼吸率监测（Mobiquitous 2021 Paper)">
 <meta property="og:url" content="http://example.com/2024/08/22/Paper-Mobiquitous-2021/index.html">
 <meta property="og:site_name" content="四环的笔记小屋">
-<meta property="og:description" content="Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算">
+<meta property="og:description" content="Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar 主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/preliminary.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/overall-structure.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-1.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-2.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-5.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-6.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-7.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-8.png">
+<meta property="og:image" content="http://example.com/images/Paper-Mobiquitous-2021/Info-9.png">
 <meta property="article:published_time" content="2024-08-22T13:21:24.000Z">
-<meta property="article:modified_time" content="2024-08-25T09:24:51.339Z">
+<meta property="article:modified_time" content="2024-08-26T13:47:01.095Z">
 <meta property="article:author" content="李思恒">
 <meta property="article:tag" content="Paper">
 <meta property="article:tag" content="Mobiquitous 2021">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/Paper-Mobiquitous-2021/preliminary.png">
 
 <link rel="canonical" href="http://example.com/2024/08/22/Paper-Mobiquitous-2021/">
 
@@ -182,8 +192,17 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-25 17:24:51" itemprop="dateModified" datetime="2024-08-25T17:24:51+08:00">2024-08-25</time>
+                <time title="修改时间：2024-08-26 21:47:01" itemprop="dateModified" datetime="2024-08-26T21:47:01+08:00">2024-08-26</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Paper/" itemprop="url" rel="index"><span itemprop="name">Paper</span></a>
+                </span>
+            </span>
 
           
 
@@ -196,7 +215,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Fine-Grained-Respiration-Monitoring-During-Overnight-Sleep-Using-IR-UWB-Radar"><a href="#Fine-Grained-Respiration-Monitoring-During-Overnight-Sleep-Using-IR-UWB-Radar" class="headerlink" title="Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar"></a>Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar</h1><p>主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算</p>
+        <p><strong>Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar</strong></p>
+<p>主要研究内容：人体整夜睡眠过程中的呼吸率、体动、呼吸深度等参数的计算</p>
 <span id="more"></span>
 
 <p><strong>Challenge</strong>: human unconscious and uncontrollable movements during sleep &#x2F;&#x2F; However, the existing work on respiration monitoring often requires the subject to sit in chair or lie in bed still, limiting the changes in distance and orientation between the subject and the device. Such settings do not match reality. In real scenarios, the subject is completely unconscious and uncontrollable during sleep. Movements of different<br>body parts will cause changes in distance and orientation between the subject<br>and the device.</p>
@@ -220,52 +240,85 @@
 <p>振幅：增&#x2F;减-吸气&#x2F;呼气，但是振幅强度受环境影响，传播过程中<strong>信号非线性衰减</strong></p>
 <p>相位：不受环境影响，只和距离相关</p>
 <p><strong>preliminary experiments</strong><br>通过预先实验发现以下问题：</p>
+
+
 <ul>
 <li><p><strong>振幅、相位单独使用存在感知盲区</strong>（namely locations where respiration detection<br>experiences poor performance，此处波形较为紊乱，并且人体是正常静止呼吸），making it hard to achieve full-time respiration monitoring &#x2F;&#x2F; 不同位置和<strong>朝向</strong>导致振幅&#x2F;相位波形不同 &#x2F;&#x2F; <mark>感知盲区might overlap?</mark></p>
-
+<p><img src="/images/Paper-Mobiquitous-2021/preliminary.png" alt="不同距离不同睡姿导致盲区的出现"></p>
 </li>
 <li><p><strong>呼吸深度失真</strong>，测量出的值范围大[<strong>0.01</strong>cm, 0.7cm]，甚至有invalid values &#x2F;&#x2F; 深度失真是因为相位失真，resulted from环境中的多径效应(静态向量影响？) 距离和角度在不断变化（使得静态向量不断变化？）</p>
 </li>
 </ul>
 <p><strong>具体处理流程</strong>：</p>
-
-
+<p><img src="/images/Paper-Mobiquitous-2021/overall-structure.png" alt="系统框架图"></p>
 <p><strong>信号预处理</strong>：背景消减、人体定位（每列FFT，取在呼吸频率内的最大振幅peak所在位置fast-time index，0.1-0.85Hz，说实话应该先判断一下加起来是否超过阈值-体动，非体动再用这个来定位并算呼吸率，但要说用0.1-0.85把呼吸和体动都包进来然后体动时也算呼吸成分最强的也行吧，或者说有人的地方这个范围内信号幅度本来就会比较强）、去噪（<mark>SG滤波，detrend</mark>）</p>
 <p><strong>信号波形分类</strong>：体动（相位-位移）、呼吸可测（自相关系数）、其它</p>
 <p>证明振幅相位的盲区互补&#x2F;振幅和相位的互补性</p>
 
 
+<p><img src="/images/Paper-Mobiquitous-2021/Info-1.png" alt="振幅和相位的互补性"></p>
 <p><mark>人正常呼吸旋转60°是否能进一步深挖，如对应的振幅相位变化等？</mark></p>
 <p><strong>呼吸率计算</strong>：<mark>自相关函数</mark></p>
 <p><strong>呼吸深度估计</strong>：基于圆心拟合的相位还原技术</p>
-<p>圆心拟合算法中文版复制过来</p>
-<p><strong>呼吸模式识别：</strong>apnea pattern, Tachypnea pattern(呼吸急促, &gt;24, 深度浅), Kussmaul pattern（库斯莫，呼吸慢且深）, and rapid change pattern of respiration rate</p>
-<p><strong>实验结果：</strong>a COTS IR-UWB radar XETHRU model X4M05 中央频率7.3GHz,带宽 1.4GHz, and 采样频率23.328GHz.，每秒帧率17FPS</p>
-<p>outperforms<br>the two existing approaches and achieves a median error in respiration rate<br>estimation of 0.27 bpm and 100% recognition accuracy for four respiration<br>patterns during sleep</p>
-<p>Reviews:</p>
-<p>1.      UWB设备的花费（WIFI,UWB说250USD而less than half of RFID）&#x2F;&#x2F; multi-person<br>scenarios and further evaluation regarding different poses and locations, which<br>may be future work</p>
-<p>2.      已有非接触式商用睡眠设备，和他们比较&#x2F;&#x2F;it would be interesting to see how respiration<br>changes during “real free” sleep (as the standard device still<br>requires wire onto body surface thus limit the movements during sleep.</p>
-<p><strong>待补充：</strong>IR-UWB雷达的相关知识（LJ paper, code, these PPT, PDF etc.），上次问的如何解决多径，项目过程中是否遇到什么问题（再问）</p>
-<p>Impulse-Radio<br>Ultra-Wideband (IR-UWB) radar 脉冲超宽带</p>
-<p>项目示意，了解一下sx那两个自然基金</p>
-<p>无线感知难点：复杂环境下的微小变化的提取与处理，后续的深度学习</p>
-<p>不同信号对比 FMCW 毫米波 … wechat talk history</p>
-<p>试过的几个方法-圆心拟合，还有一个拐点的</p>
-<p>几种函数的具体方法：如自相关函数</p>
-<p>和已有商用睡眠设备的区别，准确率？技术？使用对象等，特别是和已有非接触式睡眠设备的对比</p>
-<p>振幅与相位：</p>
+<p><mark>圆心拟合算法中文版复制过来</mark></p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-2.png" alt="圆心拟合"></p>
+<p><mark>最小二乘法相关知识</mark></p>
+<p><strong>呼吸模式识别</strong>：apnea pattern, Tachypnea pattern(呼吸急促, &gt;24, 深度浅), Kussmaul pattern（库斯莫，呼吸慢且深）, and rapid change pattern of respiration rate</p>
+<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><p>a COTS IR-UWB radar XETHRU model X4M05 中央频率7.3GHz,带宽 1.4GHz, and 采样频率23.328GHz.，每秒帧率17FPS</p>
+<p>outperforms the two existing approaches and achieves a median error in respiration rate estimation of <strong>0.27 bpm</strong> and <strong>100%</strong> recognition accuracy for four respiration patterns during sleep</p>
+<h1 id="Reviews"><a href="#Reviews" class="headerlink" title="Reviews"></a>Reviews</h1><p>1. <strong>UWB设备的花费</strong>（WIFI, UWB说250USD而less than half of RFID）&#x2F;&#x2F; <mark>multi-person</mark><br>scenarios and further evaluation regarding different poses and locations, which<br>may be future work</p>
+<p>单买4000团购400一个，<mark>其他设备的大概价格</mark>？</p>
+<p>2.  已有非接触式商用睡眠设备，和他们比较&#x2F;&#x2F;it would be interesting to see how respiration changes during “real free” sleep (as the standard device still requires wire onto body surface thus limit the movements during sleep.</p>
+<h1 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h1><p><strong>振幅与相位</strong>：</p>
 <p>振幅（Amplitude）： 振幅是指波动的最大偏离或最大幅度，即波形在峰值和谷值之间的最大差值。对于周期性波动，振幅通常表示为正弦波或余弦波的最大值的绝对值，即波形的峰值或谷值与零点之间的距离。振幅决定了波动的强度或大小。在傅里叶变换中，振幅是频域中波的强度或能量的表示。</p>
 <p>相位（Phase）： 相位是指波动在时间轴上的偏移量或延迟。在周期性波动中，相位通常表示波形相对于某个参考点的偏移量。相位可以用角度或时间来表示。在正弦波或余弦波中，相位表示波形相对于零相位（原点）的偏移量。相位决定了波动的位置或时序关系。在傅里叶变换中，相位描述了波的周期性特征的相对位置。</p>
 <p>综合来说，振幅描述了波的强度或大小，而相位描述了波的位置或时序关系。这两个参数一起决定了波动的形状和特性。在信号处理和波动理论中，对振幅和相位的分析可以帮助我们理解和处理各种波动现象，包括声波、光波、电磁波等。</p>
-<p> </p>
-<p><strong>多径效应（<strong><strong>multipath effect</strong></strong>）</strong>：指电磁波经不同路径传播后，各分量场到达接收端时间不同，按各自相位相互叠加而造成干扰，使得原来的信号失真，或者产生错误。（除目标外的多个物体，反射，折射，散射…，最后混合信号）</p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-5.png" alt="简谐运动"></p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-6.png" alt="简谐运动公式"></p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-7.png" alt="同相与反相"></p>
+<p><strong>多径效应（multipath effect）</strong></p>
+<p>指电磁波经不同路径传播后，各分量场到达接收端时间不同，按各自相位相互叠加而造成干扰，使得原来的信号失真，或者产生错误。（除目标外的多个物体，反射，折射，散射…，最后混合信号）</p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-8.png" alt="拉曼散射"></p>
+<p><strong>标准差</strong></p>
+<p><img src="/images/Paper-Mobiquitous-2021/Info-9.png" alt="标准差公式"></p>
 <p>样本标准差的分母写成n-1，是为了对自由度进行校正，这叫贝塞尔校正（Bessel’s Correction）&#x2F;&#x2F;这是因为在样本方差的计算中，我们使用样本均值来估计总体均值，这会引入一个<strong>自由度的损失</strong>。为了更好地估计总体方差，我们需要将除数调整为n-1，而不是简单地除以样本数量n。通过除以n-1而不是n，可以更好地反映样本数据的变异性，避免对总体方差进行过度估计。这种修正是为了减小样本方差与总体方差之间的偏差，提高方差估计的准确性。</p>
-<p>重温一下背景消减算法</p>
-<p>SG滤波(Savitzky-Golay)，detrend，自相关函数</p>
-<p>FFT和STFT和频谱</p>
-<p>一些信号处理知识</p>
-<p>圆心拟合的代码，原理，公式，最小二乘法</p>
-<p>那个距离和窗口内最大peak的限制代码怎么写的？</p>
+<p><strong>相位与位移</strong></p>
+<p>$$<br>\Delta\phi&#x3D;4\pi\Delta d&#x2F;\lambda &#x3D;&gt; \Delta d&#x3D;\lambda\Delta\phi&#x2F;4\pi<br>$$</p>
+<h1 id="待补充"><a href="#待补充" class="headerlink" title=" 待补充"></a><mark> 待补充</mark></h1><ul>
+<li><p><input disabled type="checkbox"> 
+项目代码过一遍 &#x2F;&#x2F;包括背景消减算法&#x2F;&#x2F;圆心拟合的代码，原理，公式，最小二乘法&#x2F;&#x2F;那个距离和窗口内最大peak的限制代码怎么写的？</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+IR-UWB雷达的相关知识（LJ paper, code, these PPT, PDF etc.），上次问的如何解决多径，项目过程中是否遇到什么问题（再问）&#x2F;&#x2F; Impulse-Radio Ultra-Wideband (IR-UWB) radar 脉冲超宽带</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+项目示意，了解一下sx那两个自然基金</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+无线感知难点：复杂环境下的微小变化的提取与处理，后续的深度学习</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+不同信号对比 FMCW 毫米波 … wechat talk history with KIM?</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+试过的几个方法-圆心拟合，还有一个拐点的</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+几种函数的具体方法：如自相关函数</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+和已有商用睡眠设备的区别，准确率？技术？使用对象等，特别是和已有非接触式睡眠设备的对比</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+SG滤波(Savitzky-Golay)，detrend，自相关函数</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+一些信号处理知识</p>
+</li>
+<li><p><input disabled type="checkbox"> 
+FFT和STFT和频谱</p>
+</li>
+</ul>
 
     </div>
 
@@ -350,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fine-Grained-Respiration-Monitoring-During-Overnight-Sleep-Using-IR-UWB-Radar"><span class="nav-number">1.</span> <span class="nav-text">Fine-Grained Respiration Monitoring During Overnight Sleep Using IR-UWB Radar</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">实验结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reviews"><span class="nav-number">2.</span> <span class="nav-text">Reviews</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">相关知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%85%E8%A1%A5%E5%85%85"><span class="nav-number">4.</span> <span class="nav-text"> 待补充</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,16 +417,16 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
